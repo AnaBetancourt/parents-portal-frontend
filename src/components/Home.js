@@ -8,14 +8,14 @@ export default function Home(){
     return(
         <div>
             <Container>
-                        <Figure>
-                            <Figure.Image
-                                width={400}
-                                height={400}
-                                alt="Parents Portal - The place for families to get connected"
-                                src="https://i.imgur.com/uIL00JK.png"
-                            />
-                        </Figure>
+                <Figure>
+                    <Figure.Image
+                        width={400}
+                        height={400}
+                        alt="Parents Portal - The place for families to get connected"
+                        src="https://i.imgur.com/uIL00JK.png"
+                    />
+                </Figure>
                 <Row>
                     <Col>
                         <h1>Welcome!</h1>
