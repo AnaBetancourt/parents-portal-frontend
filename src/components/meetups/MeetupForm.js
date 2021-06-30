@@ -6,11 +6,17 @@ import Modal from 'react-bootstrap/Modal'
 class MeetupForm extends React.Component{
 
     state = {
-        show: false
+        show: false,
+        title: "",
+        date: "",
+        time: "",
+        location: "",
+        description: ""
     }
 
     setShow(type){
         this.setState({
+            ...this.state,
             show: type
         })
     }
@@ -18,12 +24,47 @@ class MeetupForm extends React.Component{
     handleClose = () => this.setShow(false)
     handleShow = () => this.setShow(true)
 
+    handleChange = (e) => {
+        const type = e.target.name
+        const input = e.target.value
+
+        if (type === "title"){
+            this.setState({
+                ...this.state,
+                title: input
+            })
+        } else if (type === "date"){
+            this.setState({
+                ...this.state,
+                date: input
+            })
+        } else if (type === "time"){
+            this.setState({
+                ...this.state,
+                time: input
+            }) 
+        } else if (type === "location"){
+            this.setState({
+                ...this.state,
+                location: input
+            })
+        } else if (type === "description"){
+            this.setState({
+                ...this.state,
+                description: input
+            })
+        }
+    }
+
+    handleSubmit = (e) => {
+        console.log(this.state)
+    }
+
     render(){
 
         return(
             <>
                 <Button variant="outline-primary" onClick={this.handleShow}>Add Meetup</Button>
-  
                 <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" keyboard={false}>
                     <Modal.Header closeButton>
                         <Modal.Title>New Meetup</Modal.Title>
@@ -32,30 +73,30 @@ class MeetupForm extends React.Component{
                         <Form>
 				            <Form.Group className="mb-3" controlId="formBasicTitle">
                                 <Form.Label>Meetup Title</Form.Label>
-                                <Form.Control type="text" />
+                                <Form.Control onChange={this.handleChange} type="text" name="title" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicDate">
                                 <Form.Label>Date</Form.Label>
-                                <Form.Control type="text" />
+                                <Form.Control onChange={this.handleChange} type="text" name="date" />
                                 <Form.Text className="text-muted">Please use the following format: "January 1st, 2000"</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicTime">
                                 <Form.Label>Time</Form.Label>
-                                <Form.Control type="integer" />
+                                <Form.Control onChange={this.handleChange} type="integer" name="time" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicLocation">
                                 <Form.Label>Location</Form.Label>
-                                <Form.Control type="text" />
+                                <Form.Control onChange={this.handleChange} type="text" name="location" />
                                 <Form.Text className="text-muted">Ex: "Times Square, New York, New York"</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicDescription">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control as="textarea" rows={3} placeholder="Please enter a brief description" />
+                                <Form.Control onChange={this.handleChange} as="textarea" rows={3} placeholder="Please enter a brief description" name="description" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" type="submit">Submit</Button>
+                        <Button variant="primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
                         <Button variant="secondary" onClick={this.handleClose}>Close</Button>
                     </Modal.Footer>
                 </Modal>
