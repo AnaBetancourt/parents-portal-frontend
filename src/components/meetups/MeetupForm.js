@@ -67,37 +67,36 @@ class MeetupForm extends React.Component{
                 <Button variant="outline-primary" onClick={this.handleShow}>Add Meetup</Button>
                 <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" keyboard={false}>
                     <Modal.Header closeButton>
-                        <Modal.Title>New Meetup</Modal.Title>
+                        <Modal.Title>Create New Meetup</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
 				            <Form.Group className="mb-3" controlId="formBasicTitle">
-                                <Form.Label>Meetup Title</Form.Label>
+                                <Form.Label>Meetup Title:</Form.Label>
                                 <Form.Control onChange={this.handleChange} type="text" name="title" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicDate">
-                                <Form.Label>Date</Form.Label>
+                                <Form.Label>Date:</Form.Label>
                                 <Form.Control onChange={this.handleChange} type="text" name="date" />
-                                <Form.Text className="text-muted">Please use the following format: "January 1st, 2000"</Form.Text>
+                                <Form.Text className="text-muted">Ex: "January 1st, 2000"</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicTime">
-                                <Form.Label>Time</Form.Label>
+                                <Form.Label>Time:</Form.Label>
                                 <Form.Control onChange={this.handleChange} type="integer" name="time" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicLocation">
-                                <Form.Label>Location</Form.Label>
+                                <Form.Label>Location:</Form.Label>
                                 <Form.Control onChange={this.handleChange} type="text" name="location" />
                                 <Form.Text className="text-muted">Ex: "Times Square, New York, New York"</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicDescription">
-                                <Form.Label>Description</Form.Label>
-                                <Form.Control onChange={this.handleChange} as="textarea" rows={3} placeholder="Please enter a brief description" name="description" />
+                                <Form.Label>Description:</Form.Label>
+                                <Form.Control onChange={this.handleChange} as="textarea" rows={3} placeholder="Please enter a brief description." name="description" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
-                        <Button variant="secondary" onClick={this.handleClose}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </>
