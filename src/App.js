@@ -1,13 +1,16 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import NavBar from './components/NavBar'
+import Home from './components/Home'
+import { Route } from 'react-router-dom'
 
-// import MeetupsContainer from './containers/MeetupsContainer'
 
 function App() {
   return (
-    <div className="App">
-      {/* <MeetupsContainer /> */}
-    </div>
+    <>                            
+      <Route path="/" component={NavBar} />
+      <Route exact path="/" component={Home} />          
+    </>
   );
 }
 

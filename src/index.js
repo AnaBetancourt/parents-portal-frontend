@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import NavBar from './components/NavBar'
-import Home from './components/Home'
+import {BrowserRouter as Router} from 'react-router-dom'
 // import {Provider} from 'react-redux'
 
 ReactDOM.render(
   <Router>
-      <Route path="/" component={NavBar} />
-      <Route exact path="/" component={Home} />
+    <App />
   </Router>
   ,
   document.getElementById('root')
