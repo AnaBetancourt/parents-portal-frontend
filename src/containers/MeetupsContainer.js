@@ -5,11 +5,40 @@ import Col from 'react-bootstrap/Col'
 import Meetup from '../components/meetups/Meetup'
 import MeetupForm from '../components/meetups/MeetupForm'
 import {connect} from 'react-redux'
+// import {} from '../actions/MeetupActions'
 
 class MeetupsContainer extends React.Component{
 
-    renderMeetups = () => {
-    
+    componentDidMount(){
+        const url = "http://localhost:3001/meetups"
+
+        fetch(url)
+        .then(resp => resp.json())
+        .then(resp => {
+            const data = resp.data
+            const meetupArr = []
+            
+            data.map(d => {
+                return meetupArr.push({...d.attributes, id: d.id})
+            })
+
+
+        })
+    }
+
+    renderMeetups(){
+        return this.props.meetups.map(m => {
+            return <Meetup
+                key={m.id}
+                id={m.id}
+                title={m.title}
+                date={m.date}
+                time={m.time}
+                location={m.location}
+                description={m.description}
+                interested_count={m.interested_count}
+            />
+        })
     }
 
 
@@ -23,7 +52,7 @@ class MeetupsContainer extends React.Component{
                         </Col>
                     </Row>
                     <Row>
-                        <Meetup />
+                        {this.renderMeetups()}
                     </Row>
                 </Container>
             </>
@@ -33,7 +62,7 @@ class MeetupsContainer extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        meetups: state.meetups
+        meetups: state.meetups.meetups
     }
 }
 
