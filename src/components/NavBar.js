@@ -1,5 +1,6 @@
 import React from 'react' 
 import {Navbar, Nav} from 'react-bootstrap'
+import {NavLink} from 'react-router-dom'
 
 
 export default function NavBar(){
@@ -9,9 +10,9 @@ export default function NavBar(){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href='/'>Home</Nav.Link>
-                    <Nav.Link href='/meetups'>Meetups</Nav.Link>
-                    <Nav.Link href='/forum'>Forum</Nav.Link>
+                    <Nav.Link><NavLink to='/'>Home</NavLink></Nav.Link>
+                    <Nav.Link><NavLink to='/meetups'>Meetups</NavLink></Nav.Link>
+                    <Nav.Link><NavLink to='/forum'>Forum</NavLink></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
