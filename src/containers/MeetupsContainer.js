@@ -22,6 +22,7 @@ class MeetupsContainer extends React.Component{
                 return meetupArr.push({...d.attributes, id: d.id})
             })
 
+            this.props.renderMeetups(meetupArr)
 
         })
     }
@@ -66,4 +67,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect (mapStateToProps)(MeetupsContainer)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        renderMeetups: (meetups) => dispatch({type: 'RENDER_MEETUPS', payload: meetups})
+    }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(MeetupsContainer)
