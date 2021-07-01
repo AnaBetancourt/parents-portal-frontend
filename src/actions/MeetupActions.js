@@ -1,6 +1,6 @@
 const url = "http://localhost:3001/meetups"
 
-export const renderMeetups = (meetups) => ({type: 'RENDER_MEETUPS', payload: meetups})
+export const loadMeetups = (meetups) => ({type: 'LOAD_MEETUPS', payload: meetups})
 
 export const fetchMeetups = () => {
     return (dispatch) => {
@@ -14,7 +14,7 @@ export const fetchMeetups = () => {
                 return meetupArr.push({...d.attributes, id: d.id})
             })
     
-            dispatch(renderMeetups(meetupArr))
+            dispatch(loadMeetups(meetupArr))
         })
     }
 }
