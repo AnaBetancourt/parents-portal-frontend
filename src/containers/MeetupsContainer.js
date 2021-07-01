@@ -4,8 +4,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Meetup from '../components/meetups/Meetup'
 import MeetupForm from '../components/meetups/MeetupForm'
+import {connect} from 'react-redux'
 
 class MeetupsContainer extends React.Component{
+
+    renderMeetups = () => {
+    
+    }
+
+
     render(){
         return(
             <>
@@ -24,4 +31,10 @@ class MeetupsContainer extends React.Component{
     }
 }
 
-export default MeetupsContainer
+const mapStateToProps = (state) => {
+    return {
+        meetups: state.meetups
+    }
+}
+
+export default connect (mapStateToProps)(MeetupsContainer)
