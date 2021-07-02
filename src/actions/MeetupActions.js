@@ -52,10 +52,11 @@ export const updateInterest = (meetup) => {
             body: JSON.stringify(meetup)
         }
 
-        fetch(url + "/" + `${meetup.id}`, configObj)
+        fetch(`${url}/${meetup.id}`, configObj)
         .then(resp => resp.json())
         .then(resp => {
-            console.log(resp)
+            const increasedMeetup = {id: parseInt(resp.data.id), ...resp.data.attributes}
+            console.log(increasedMeetup)
         })
     }
 }
