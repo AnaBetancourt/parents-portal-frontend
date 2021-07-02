@@ -1,7 +1,6 @@
 import React from 'react' 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Meetup from '../components/meetups/Meetup'
 import MeetupForm from '../components/meetups/MeetupForm'
 import {connect} from 'react-redux'
@@ -15,7 +14,7 @@ class MeetupsContainer extends React.Component{
 
     renderMeetups(){
         return this.props.meetups.map(m => {
-            return <Meetup
+            return <Row key={m.id}><Meetup
                 key={m.id}
                 id={m.id}
                 title={m.title}
@@ -24,7 +23,7 @@ class MeetupsContainer extends React.Component{
                 location={m.location}
                 description={m.description}
                 interested_count={m.interested_count}
-            />
+            /></Row>
         })
     }
 
@@ -34,13 +33,9 @@ class MeetupsContainer extends React.Component{
             <>
                 <Container>
                     <Row>
-                        <Col>
-                            <MeetupForm />
-                        </Col>
+                        <MeetupForm />
                     </Row>
-                    <Row>
-                        {this.renderMeetups()}
-                    </Row>
+                    {this.renderMeetups()}
                 </Container>
             </>
         )
