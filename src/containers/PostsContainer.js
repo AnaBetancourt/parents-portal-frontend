@@ -16,6 +16,7 @@ class PostsContainer extends React.Component{
     renderPosts(){
         return this.props.posts.map(p => {
             return <Post
+                key={p.id}
                 id={p.id}
                 body={p.body}
             />
