@@ -1,9 +1,10 @@
 import React from 'react' 
 
-export default function Comment(){
+export default function Comment({id, body}){
     return(
         <div>
-            I am a comment.
+            <p>{body}</p>
+            <br />
         </div>
     )
 }
