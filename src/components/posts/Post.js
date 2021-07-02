@@ -1,9 +1,10 @@
 import React from 'react' 
 
-export default function Post(){
+export default function Post({id, body}){
     return(
         <div>
-            I am a Post.
+            <p>{body}</p>
+            <br />
         </div>
     )
 }
