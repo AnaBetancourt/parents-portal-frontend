@@ -2,6 +2,8 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import {connect} from 'react-redux'
+import {createMeetup} from '../../actions/MeetupActions'
 
 class MeetupForm extends React.Component{
 
@@ -58,7 +60,7 @@ class MeetupForm extends React.Component{
 
     handleSubmit = () => {
         const formData = {title: this.state.title, date: this.state.date, time: this.state.time, location: this.state.location, description: this.state.description}
-        this.props.submissionHandler(formData)
+        this.props.createMeetup(formData)
 
         this.setState({
             show: false,
@@ -114,4 +116,4 @@ class MeetupForm extends React.Component{
     }
 }
 
-export default MeetupForm
+export default connect (null, {createMeetup})(MeetupForm)
