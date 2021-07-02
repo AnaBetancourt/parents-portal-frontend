@@ -11,7 +11,7 @@ export const fetchPosts = () => {
             const postArr = []
             
             data.map(d => {
-                return postArr.push({...d.attributes.body, id: d.id})
+                return postArr.push({...d.attributes, id: d.id})
             })
     
             dispatch(loadPosts(postArr))
