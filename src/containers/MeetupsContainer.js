@@ -23,8 +23,13 @@ class MeetupsContainer extends React.Component{
                 location={m.location}
                 description={m.description}
                 interested_count={m.interested_count}
+                buttonHandler={this.handleInterest}
             /></Row>
         })
+    }
+
+    handleInterest = (e) => {
+        console.log(e.target)
     }
 
 
