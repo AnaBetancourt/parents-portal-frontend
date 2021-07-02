@@ -72,6 +72,7 @@ class MeetupForm extends React.Component{
                             <Form.Group className="mb-3" controlId="formBasicTime">
                                 <Form.Label>Time:</Form.Label>
                                 <Form.Control onChange={this.handleChange} type="integer" name="time" />
+                                <Form.Text className="text-muted">Ex: "12:00 pm"</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicLocation">
                                 <Form.Label>Location:</Form.Label>
