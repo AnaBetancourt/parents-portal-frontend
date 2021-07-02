@@ -33,33 +33,6 @@ class MeetupForm extends React.Component{
         this.setState({
             [type]: input
         })
-
-        // if (type === "title"){
-        //     this.setState({
-        //         ...this.state,
-        //         title: input
-        //     })
-        // } else if (type === "date"){
-        //     this.setState({
-        //         ...this.state,
-        //         date: input
-        //     })
-        // } else if (type === "time"){
-        //     this.setState({
-        //         ...this.state,
-        //         time: input
-        //     }) 
-        // } else if (type === "location"){
-        //     this.setState({
-        //         ...this.state,
-        //         location: input
-        //     })
-        // } else if (type === "description"){
-        //     this.setState({
-        //         ...this.state,
-        //         description: input
-        //     })
-        // }
     }
 
     handleSubmit = () => {
