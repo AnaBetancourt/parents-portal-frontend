@@ -28,9 +28,8 @@ class MeetupsContainer extends React.Component{
         })
     }
 
-    handleInterest = (e) => {
-        const meetupId = e.target.id
-        console.log(meetupId)
+    handleInterest = (id) => {
+        console.log(id)
     }
 
     handleFormSubmit = (formData) => {
