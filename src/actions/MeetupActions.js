@@ -2,7 +2,7 @@ const url = "http://localhost:3001/meetups"
 
 export const loadMeetups = (meetups) => ({type: 'LOAD_MEETUPS', payload: meetups})
 export const addMeetup = (meetup) => ({type: 'ADD_MEETUP', payload: meetup})
-// export const increaseInterest = (newMeetups) => ({type: 'INCREASE_INTEREST', payload: newMeetups})
+export const increaseInterest = (editedMeetup) => ({type: 'INCREASE_INTEREST', payload: editedMeetup})
 
 export const fetchMeetups = () => {
     return (dispatch) => {
@@ -56,7 +56,7 @@ export const updateInterest = (meetup) => {
         .then(resp => resp.json())
         .then(resp => {
             const increasedMeetup = {id: parseInt(resp.data.id), ...resp.data.attributes}
-            console.log(increasedMeetup)
+            dispatch(increaseInterest(increasedMeetup))
         })
     }
 }
