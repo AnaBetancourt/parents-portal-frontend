@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Meetup from '../components/meetups/Meetup'
 import MeetupForm from '../components/meetups/MeetupForm'
 import {connect} from 'react-redux'
-import {fetchMeetups, createMeetup} from '../actions/MeetupActions'
+import {fetchMeetups, createMeetup, updateInterest} from '../actions/MeetupActions'
 
 class MeetupsContainer extends React.Component{
 
@@ -29,7 +29,9 @@ class MeetupsContainer extends React.Component{
     }
 
     handleInterest = (id) => {
-        console.log(id)
+        const meetup = this.props.meetups.find(meetup => meetup.id === id)
+        const newMeetup = {...meetup, interested_count: meetup.interested_count + 1}
+        this.props.updateInterest(newMeetup)
     }
 
     handleFormSubmit = (formData) => {
@@ -57,4 +59,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect (mapStateToProps, {fetchMeetups, createMeetup})(MeetupsContainer)
+export default connect (mapStateToProps, {fetchMeetups, createMeetup, updateInterest})(MeetupsContainer)

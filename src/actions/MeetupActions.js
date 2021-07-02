@@ -2,6 +2,7 @@ const url = "http://localhost:3001/meetups"
 
 export const loadMeetups = (meetups) => ({type: 'LOAD_MEETUPS', payload: meetups})
 export const addMeetup = (meetup) => ({type: 'ADD_MEETUP', payload: meetup})
+// export const increaseInterest = (newMeetups) => ({type: 'INCREASE_INTEREST', payload: newMeetups})
 
 export const fetchMeetups = () => {
     return (dispatch) => {
@@ -36,6 +37,25 @@ export const createMeetup = (meetup) => {
         .then(resp => {
             const newMeetup = {id: parseInt(resp.data.id), ...resp.data.attributes}
             dispatch(addMeetup(newMeetup))
+        })
+    }
+}
+
+export const updateInterest = (meetup) => {
+    return (dispatch) => {
+        const configObj = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(meetup)
+        }
+
+        fetch(url + "/" + `${meetup.id}`, configObj)
+        .then(resp => resp.json())
+        .then(resp => {
+            console.log(resp)
         })
     }
 }
