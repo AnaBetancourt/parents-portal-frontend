@@ -21,7 +21,7 @@ export default function Meetup({id, title, date, time, location, description, in
                 <p>{description}</p>
             </Row>
             <Row>
-                <Col><Button onClick={buttonHandler} variant="info" size="sm">Show Interest</Button></Col>
+                <Col><Button id={id} onClick={buttonHandler} variant="info" size="sm">Show Interest</Button></Col>
                 <Col><h6>{interested_count} families are interested in this meetup</h6></Col>
             </Row>
         </Container>

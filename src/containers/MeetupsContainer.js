@@ -29,7 +29,8 @@ class MeetupsContainer extends React.Component{
     }
 
     handleInterest = (e) => {
-        console.log(e.target)
+        const meetupId = e.target.id
+        console.log(meetupId)
     }
 
 
