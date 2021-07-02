@@ -56,8 +56,18 @@ class MeetupForm extends React.Component{
         }
     }
 
-    handleSubmit = (e) => {
-        console.log(this.state)
+    handleSubmit = () => {
+        const formData = {title: this.state.title, date: this.state.date, time: this.state.time, location: this.state.location, description: this.state.description}
+        this.props.submissionHandler(formData)
+
+        this.setState({
+            show: false,
+            title: "",
+            date: "",
+            time: "",
+            location: "",
+            description: ""
+        })
     }
 
     render(){
