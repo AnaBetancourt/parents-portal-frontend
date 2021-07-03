@@ -34,7 +34,7 @@ class CommentForm extends React.Component{
             <>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicBody">
-                        <Form.Control onChange={this.handleChange} as="textarea" rows={3} placeholder="Enter comment." name="body" />
+                        <Form.Control onChange={this.handleChange} as="textarea" rows={3} placeholder="Enter comment." name="body" value={this.state.body} />
                     </Form.Group>
                     <Button variant="outline-primary" type="submit">Submit</Button>
                 </Form>
