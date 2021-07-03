@@ -33,9 +33,7 @@ class PostsContainer extends React.Component{
                             <PostForm />
                         </Col>
                     </Row>
-                    <Row>
-                        {this.renderPosts()}
-                    </Row>
+                    {this.renderPosts()}
                 </Container>
             </>
         )
