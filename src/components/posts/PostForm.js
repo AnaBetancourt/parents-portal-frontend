@@ -23,11 +23,11 @@ class PostForm extends React.Component{
     handleShow = () => this.setShow(true)
 
     handleChange = (e) => {
-        const type = e.target.name
         const input = e.target.value
 
         this.setState({
-            [type]: input
+            ...this.state,
+            body: input
         })
     }
 

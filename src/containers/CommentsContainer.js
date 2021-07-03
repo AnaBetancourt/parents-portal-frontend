@@ -20,7 +20,6 @@ class CommentsContainer extends React.Component{
                     <Col key={c.id}>
                         <Comment
                             key={c.id}
-                            id={c.id}
                             body={c.body}
                         />
                     </Col>
