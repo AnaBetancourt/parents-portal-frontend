@@ -39,11 +39,13 @@ class CommentsContainer extends React.Component{
                         <h6>Add New Comment</h6>
                     </Row>
                     <Row>
-                        <CommentForm />
+                        <CommentForm post_id={this.props.posting} />
                     </Row>
                     <hr />
                     <Row>
                         <h6>Comments for this Posting</h6>
+                    </Row>
+                    <Row>
                         {this.renderComments()}
                     </Row>
                 </Container>

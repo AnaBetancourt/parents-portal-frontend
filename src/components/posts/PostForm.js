@@ -37,11 +37,7 @@ class PostForm extends React.Component{
 
         this.setState({
             show: false,
-            title: "",
-            date: "",
-            time: "",
-            location: "",
-            description: ""
+            body: ""
         })
     }
 
