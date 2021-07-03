@@ -44,9 +44,7 @@ class CommentsContainer extends React.Component{
                     <Row>
                         <h6>Comments for this Posting</h6>
                     </Row>
-                    <Row>
-                        {this.renderComments()}
-                    </Row>
+                    {this.renderComments()}
                 </Container>
             </>
         )
