@@ -3,7 +3,7 @@ import CommentsContainer from '../../containers/CommentsContainer'
 import Card from 'react-bootstrap/Card'
 import Collapse from 'react-bootstrap/Collapse'
 
-export default function Post({id, body, toggleOpen}){
+export default function Post({id, body, toggleOpen, open}){
 
     return(
         <div>
@@ -12,10 +12,10 @@ export default function Post({id, body, toggleOpen}){
                     <Card.Text>{body}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <div onClick={() => toggleOpen(!!toggleOpen)}>view comments</div>
-                    <Collapse in={!toggleOpen}>
+                    <div onClick={() => toggleOpen(open)}>view comments</div>
+                    <Collapse in={open}>
                         <div>
-                            <p>Content when the button is clicked</p>
+                            <CommentsContainer posting={id} />
                         </div>
                     </Collapse>
                 </Card.Footer>
