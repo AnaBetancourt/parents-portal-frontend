@@ -13,9 +13,10 @@ class PostsContainer extends React.Component{
         this.props.fetchPosts()
     }
 
-    setOpen(open){
-        const value = open === true? false : true
+    setOpen(value){
+        const open = value === true? false : true
         console.log(value)
+        console.log(open)
     }
 
     renderPosts(){

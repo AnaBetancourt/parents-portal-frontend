@@ -2,9 +2,8 @@ import React from 'react'
 import CommentsContainer from '../../containers/CommentsContainer'
 import Card from 'react-bootstrap/Card'
 import Collapse from 'react-bootstrap/Collapse'
-import Button from 'react-bootstrap/Button'
 
-export default function Post({id, body, open, toggleOpen}){
+export default function Post({id, body, toggleOpen}){
 
     return(
         <div>
@@ -13,16 +12,12 @@ export default function Post({id, body, open, toggleOpen}){
                     <Card.Text>{body}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <small>
-                        <Button className="btn" onClick={() => toggleOpen(open)}>
-                            Collapse Div
-                        </Button>
-                        {/* <Collapse in={open}>
-                            <div>
-                                <p>Content when the button is clicked</p>
-                            </div>
-                        </Collapse> */}
-                    </small>
+                    <div onClick={() => toggleOpen(!!toggleOpen)}>view comments</div>
+                    <Collapse in={!toggleOpen}>
+                        <div>
+                            <p>Content when the button is clicked</p>
+                        </div>
+                    </Collapse>
                 </Card.Footer>
             </Card>
             <br />
