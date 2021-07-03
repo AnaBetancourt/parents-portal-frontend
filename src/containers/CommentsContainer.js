@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Comment from '../components/comments/Comment'
-import CommentForm from '../components/comments/CommentForm'
 import {connect} from 'react-redux'
 import {fetchComments} from '../actions/CommentActions'
 
@@ -15,11 +14,17 @@ class CommentsContainer extends React.Component{
 
     renderComments(){
         return this.props.comments.map(c => {
-            return <Comment
-                key={c.id}
-                id={c.id}
-                body={c.body}
-            />
+            if(c.post_id === parseInt(this.props.posting)){
+                return <Row key={c.id}>
+                    <Col key={c.id}>
+                        <Comment
+                            key={c.id}
+                            id={c.id}
+                            body={c.body}
+                        />
+                    </Col>
+                </Row>
+            }
         })
     }
 
@@ -29,11 +34,7 @@ class CommentsContainer extends React.Component{
             <>
                 <Container>
                     <Row>
-                        <Col>
-                            <CommentForm />
-                        </Col>
-                    </Row>
-                    <Row>
+                        <h6>Comments</h6>
                         {this.renderComments()}
                     </Row>
                 </Container>

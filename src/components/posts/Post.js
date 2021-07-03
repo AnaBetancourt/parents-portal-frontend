@@ -1,13 +1,16 @@
 import React from 'react' 
-// import CommentsContainer from '../../containers/CommentsContainer'
+import CommentsContainer from '../../containers/CommentsContainer'
+import CommentForm from '../comments/CommentForm'
 
 export default function Post({id, body}){
     return(
         <div>
-            <h5>Forum Post</h5>
+            <hr />
+            <h6><strong>Posting</strong></h6>
             <p>{body}</p>
-            {/* <CommentsContainer /> */}
-            <br />
+            <CommentForm />
+            <br /><br />
+            <CommentsContainer posting={id} />
         </div>
     )
 }
