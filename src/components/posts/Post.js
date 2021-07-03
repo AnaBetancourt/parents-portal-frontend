@@ -1,7 +1,7 @@
 import React from 'react' 
 import CommentsContainer from '../../containers/CommentsContainer'
 import Card from 'react-bootstrap/Card'
-import Collapse from 'react-bootstrap/Collapse'
+import Accordion from 'react-bootstrap/Accordion'
 
 export default function Post({id, body, toggleOpen, open}){
 
@@ -11,16 +11,17 @@ export default function Post({id, body, toggleOpen, open}){
                 <Card.Body>
                     <Card.Text>{body}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                    <div onClick={() => toggleOpen(open)}>view comments</div>
-                    <Collapse in={open}>
-                        <div>
-                            <CommentsContainer posting={id} />
-                        </div>
-                    </Collapse>
-                </Card.Footer>
+                <Accordion>
+                    <Card>
+                        <Accordion.Toggle as={Card.Header} eventKey="0">View Comments</Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body><CommentsContainer posting={id} /></Card.Body>
+                        </Accordion.Collapse>
+                    </Card>
+                </Accordion>
             </Card>
             <br />
         </div>
     )
 }
+

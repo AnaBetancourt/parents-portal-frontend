@@ -9,16 +9,8 @@ import {fetchPosts} from '../actions/PostActions'
 
 class PostsContainer extends React.Component{
 
-    state = {
-        open: false
-    }
-
     componentDidMount(){
         this.props.fetchPosts()
-    }
-
-    setOpen = () =>{
-        this.state.open === true ? this.setState({open: false}) : this.setState({open: true})
     }
 
     renderPosts(){
@@ -27,8 +19,6 @@ class PostsContainer extends React.Component{
                 key={p.id}
                 id={p.id}
                 body={p.body}
-                toggleOpen={this.setOpen}
-                open={this.state.open}
             /><br /><br /></Row>
         })
     }
