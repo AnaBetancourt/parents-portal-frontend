@@ -15,11 +15,11 @@ class PostsContainer extends React.Component{
 
     renderPosts(){
         return this.props.posts.map(p => {
-            return <Post
+            return <Row key={p.id}><Post
                 key={p.id}
                 id={p.id}
                 body={p.body}
-            />
+            /></Row>
         })
     }
 

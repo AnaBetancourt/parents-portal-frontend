@@ -2,11 +2,14 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import {connect} from 'react-redux'
+import {createPost} from '../../actions/PostActions'
 
 class PostForm extends React.Component{
 
     state = {
-        body: ""
+        body: "",
+        show: false
     }
 
     setShow(type){
@@ -28,8 +31,18 @@ class PostForm extends React.Component{
         })
     }
 
-    handleSubmit = (e) => {
-        console.log(this.state)
+    handleSubmit = () => {
+        const formData = {body: this.state.body}
+        this.props.createPost(formData)
+
+        this.setState({
+            show: false,
+            title: "",
+            date: "",
+            time: "",
+            location: "",
+            description: ""
+        })
     }
 
     render(){
@@ -58,4 +71,4 @@ class PostForm extends React.Component{
     }
 }
 
-export default PostForm
+export default connect (null, {createPost})(PostForm)

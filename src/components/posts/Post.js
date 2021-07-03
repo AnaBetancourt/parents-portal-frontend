@@ -4,6 +4,7 @@ import React from 'react'
 export default function Post({id, body}){
     return(
         <div>
+            <h5>Forum Post</h5>
             <p>{body}</p>
             {/* <CommentsContainer /> */}
             <br />
