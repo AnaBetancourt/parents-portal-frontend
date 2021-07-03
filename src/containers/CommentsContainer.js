@@ -14,7 +14,7 @@ class CommentsContainer extends React.Component{
     }
 
     renderComments(){
-        return this.props.comments.map(c => {
+        this.props.comments.map(c => {
             if(c.post_id === parseInt(this.props.posting)){
                 return <Row key={c.id}>
                     <Col key={c.id}>
@@ -26,6 +26,7 @@ class CommentsContainer extends React.Component{
                     </Col>
                 </Row>
             }
+            return null
         })
     }
 
