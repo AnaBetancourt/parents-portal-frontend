@@ -9,7 +9,7 @@ export default function Post({id, body, toggleOpen, open}){
         <div>
             <Card style={{ width: '50rem' }}>
                 <Card.Body>
-                    <Card.Text>{body}</Card.Text>
+                    <Card.Text><strong>{body}</strong></Card.Text>
                 </Card.Body>
                 <Accordion>
                     <Card>
