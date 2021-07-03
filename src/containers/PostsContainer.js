@@ -19,7 +19,7 @@ class PostsContainer extends React.Component{
                 key={p.id}
                 id={p.id}
                 body={p.body}
-            /></Row>
+            /><br /><br /></Row>
         })
     }
 
