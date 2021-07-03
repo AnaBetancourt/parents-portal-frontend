@@ -13,14 +13,13 @@ export default function Post({id, body, toggleOpen, open}){
                 </Card.Body>
                 <Accordion>
                     <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="0">View Comments</Accordion.Toggle>
+                        <Accordion.Toggle as={Card.Header} eventKey="0">Comments</Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body><CommentsContainer posting={id} /></Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
             </Card>
-            <br />
         </div>
     )
 }
