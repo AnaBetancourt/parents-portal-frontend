@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Comment from '../components/comments/Comment'
+import CommentForm from '../components/comments/CommentForm'
 import {connect} from 'react-redux'
 import {fetchComments} from '../actions/CommentActions'
 
@@ -34,7 +35,9 @@ class CommentsContainer extends React.Component{
             <>
                 <Container>
                     <Row>
-                        <h6>Comments:</h6>
+                        <CommentForm />
+                    </Row>
+                    <Row>
                         {this.renderComments()}
                     </Row>
                 </Container>

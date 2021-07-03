@@ -9,7 +9,7 @@ export default class CommentForm extends React.Component{
     render(){
         return(
             <>
-                I am a comment form
+                add a comment
             </>
         )
     }

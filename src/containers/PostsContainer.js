@@ -13,12 +13,19 @@ class PostsContainer extends React.Component{
         this.props.fetchPosts()
     }
 
+    setOpen(open){
+        const value = open === true? false : true
+        console.log(value)
+    }
+
     renderPosts(){
         return this.props.posts.map(p => {
             return <Row key={p.id}><Post
                 key={p.id}
                 id={p.id}
                 body={p.body}
+                toggleOpen={this.setOpen}
+                open="false"
             /><br /><br /></Row>
         })
     }
