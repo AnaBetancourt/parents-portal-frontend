@@ -35,9 +35,13 @@ class CommentsContainer extends React.Component{
             <>
                 <Container>
                     <Row>
+                        <h6>Add New Comment</h6>
+                        <br />
                         <CommentForm />
                     </Row>
+                    <hr />
                     <Row>
+                        <h6>Comments for This Posting</h6>
                         {this.renderComments()}
                     </Row>
                 </Container>
