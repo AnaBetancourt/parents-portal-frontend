@@ -7,7 +7,8 @@ import {createComment} from '../../actions/CommentActions'
 class CommentForm extends React.Component{
 
     state = {
-        body: ""
+        body: "",
+        post_id: this.props.post_id
     }
 
     handleChange = (e) => {
@@ -21,11 +22,11 @@ class CommentForm extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const formData = {body: this.state.body, post_id: this.props.post_id}
-        this.props.createComment(formData)
+        this.props.createComment(this.state)
 
         this.setState({
-            body: ""
+            body: "",
+            post_id: ""
         })
     }
 
