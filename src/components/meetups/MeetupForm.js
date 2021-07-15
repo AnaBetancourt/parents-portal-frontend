@@ -36,8 +36,7 @@ class MeetupForm extends React.Component{
     }
 
     handleSubmit = () => {
-        const formData = {title: this.state.title, date: this.state.date, time: this.state.time, location: this.state.location, description: this.state.description}
-        this.props.createMeetup(formData)
+        this.props.createMeetup(this.state)
 
         this.setState({
             show: false,
@@ -94,4 +93,10 @@ class MeetupForm extends React.Component{
     }
 }
 
-export default connect (null, {createMeetup})(MeetupForm)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createMeetup: (info) => dispatch(createMeetup(info))
+    }
+}
+
+export default connect (null, mapDispatchToProps)(MeetupForm)
