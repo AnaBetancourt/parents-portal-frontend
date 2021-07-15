@@ -26,14 +26,12 @@ class PostForm extends React.Component{
         const input = e.target.value
 
         this.setState({
-            ...this.state,
             body: input
         })
     }
 
     handleSubmit = () => {
-        const formData = {body: this.state.body}
-        this.props.createPost(formData)
+        this.props.createPost(this.state)
 
         this.setState({
             show: false,
